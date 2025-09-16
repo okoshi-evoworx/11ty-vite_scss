@@ -26,13 +26,13 @@ mkcert localhost
 ```
 npm run serve
 ```
-※ `または `npm run s` でも実行可
+※ または `npm run s` でも実行可
 
 ### Watchのみ
 ```
 npm run watch
 ```
-※ `または `npm run w` でも実行可
+※ または `npm run w` でも実行可
 
 
 
@@ -74,7 +74,7 @@ npm run watch
 │       │     ├─ news_detail.njk： News詳細マークダウンファイル用テンプレート
 │       │     └─ base.njk： 全体のベースファイル
 │       └─ _template/： テンプレートファイル
-│          ├─ components/： コンポーネント
+│          └─ data/： データ出力確認用
 ├─ tests/
 │   └─ axe.spec.js：@axe-core/playwright設定ファイル
 ├─ .browserslistrc
