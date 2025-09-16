@@ -1,0 +1,19 @@
+---
+gnav: news
+---
+{% extends 'layouts/base.njk' %}
+
+{# ページ固有CSS ================================= -#}
+{% block css -%}
+{%- endblock %}
+
+{# ページ固有JS ================================== -#}
+{% block js -%}
+{%- endblock %}
+
+{# コンテンツ ==================================== -#}
+{% block main -%}
+<div class="p-news-detail">
+{{  content | safe }}
+</div>
+{%- endblock %}

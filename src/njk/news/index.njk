@@ -1,0 +1,43 @@
+---
+title: NEWS一覧
+gnav: news
+description: collectionを使用したNEWS一覧ページです。
+breadcrumbs:
+  - name: 'NEWS'
+    item: '/news/'
+pagination:
+  data: collections.news
+  size: 2
+  reverse: true
+permalink: "news/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+---
+{#-
+  pagination:
+    data: collections.news  ← collections.newsをページネーション
+    size: 2                  ← 1ページあたりの記事数
+    reverse: true            ← 新しい順に表示
+  permalink: "news/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+    ← 1ページ目は /news/index.html に、2ページ目以降は /news/2/index.html、/news/3/index.html に出力
+-#}
+{% extends 'layouts/base.njk' %}
+
+{# ページ固有CSS ================================= -#}
+{% block css -%}
+{%- endblock %}
+
+{# ページ固有JS ================================== -#}
+{% block js -%}
+{%- endblock %}
+
+{# コンテンツ ==================================== -#}
+{% block main -%}
+
+<ul class="grid grid-cols-2 gap-4 p-4 w-fit mx-auto">
+{%- for item in pagination.items -%}
+{% include "components/news_item.njk" %}
+{%- endfor -%}
+</ul>
+
+{% include "components/pager.njk" %}
+
+{%- endblock %}

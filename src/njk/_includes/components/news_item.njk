@@ -1,0 +1,16 @@
+<li>
+  <a href="{{ item.url }}">
+  {%- if item.data.thumb %}
+    <figure><img src="{{ item.data.thumb }}" alt="" width="160" height="160" loading="lazy"></figure>
+  {%- endif %}
+    <h3>{{ item.data.title }}</h3>
+    <p class="date"><time datetime="{{ item.data.date | datetime }}">{{ item.data.date | dateview }}</time></p>
+  </a>
+  {%- if item.data.tags %}
+  <ul>
+    {%- for tag in item.data.tags %}
+    <li><a href="{{ site.root }}news/{{ tag }}/" class="underline underline-offset-1 decoration-1 hover:no-underline">{{ tag }}</a></li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+</li>

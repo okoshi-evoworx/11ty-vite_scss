@@ -1,0 +1,38 @@
+---
+title: TAG1 一覧 | NEWS
+gnav: news
+description: collectionを使用したNEWS一覧ページです。
+breadcrumbs:
+  - name: 'NEWS'
+    item: '/news/'
+  - name: 'TAG1'
+    item: '/news/tag2/'
+pagination:
+  data: collections.tag2
+  size: 2
+  reverse: true
+permalink: "news/tag2/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+---
+{% extends 'layouts/base.njk' %}
+
+{# ページ固有CSS ================================= -#}
+{% block css -%}
+{%- endblock %}
+
+{# ページ固有JS ================================== -#}
+{% block js -%}
+{%- endblock %}
+
+{# コンテンツ ==================================== -#}
+{% block main -%}
+
+
+
+<ul class="grid grid-cols-2 gap-4 p-4 w-fit mx-auto">
+{%- for item in pagination.items -%}
+{% include "components/news_item.njk" %}
+{%- endfor -%}
+</ul>
+{% include "components/pager.njk" %}
+
+{%- endblock %}

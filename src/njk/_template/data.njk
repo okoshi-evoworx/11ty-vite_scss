@@ -1,0 +1,336 @@
+---
+title: DATA | TEMPLATE
+gnav: template
+description: desctiptionが入ります。
+breadcrumbs:
+  - name: 'TEMPLATE'
+    item: '/_template/'
+  - name: 'DATA'
+    item: '/_template/data/'
+---
+{% extends 'layouts/base.njk' %}
+
+{# ページ固有CSS ================================= -#}
+{% block css -%}
+{%- endblock %}
+
+{# ページ固有JS ================================== -#}
+{% block js -%}
+{%- endblock %}
+
+{# コンテンツ ==================================== -#}
+{% block main -%}
+<table class="table-fixed border-collapse border border-slate-400 text-sm my-12">
+  <caption class="mb-4 text-xl text-left font-bold">Frontmatter出力例</caption>
+	<colgroup>
+		<col>
+		<col>
+		<col>
+		<col>
+	</colgroup>
+  <thead>
+    <tr class="bg-gray-200 border border-slate-400">
+      <th class="p-2 border border-slate-40">変数名</th>
+			<th class="p-2 border border-slate-40">出力結果</th>
+			<th class="p-2 border border-slate-40">内容</th>
+			<th class="p-2 border border-slate-40">備考</th>
+    </tr>
+  </thead>
+	<tbody>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ title }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ title }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">ページタイトル</td>
+			<td class="p-2 border border-slate-400 text-xs">
+			</td>
+		</tr>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ description }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ description }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">ディスクリプション</td>
+			<td class="p-2 border border-slate-400 text-xs">
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="table-fixed border-collapse border border-slate-400 text-sm my-12">
+  <caption class="mb-4 text-xl text-left font-bold">page変数一覧</caption>
+  <thead>
+    <tr class="bg-gray-200 border border-slate-400">
+      <th class="p-2 border border-slate-40">変数名</th>
+			<th class="p-2 border border-slate-40">出力結果</th>
+			<th class="p-2 border border-slate-40">内容</th>
+			<th class="p-2 border border-slate-40">備考</th>
+    </tr>
+  </thead>
+	<tbody>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ page.url }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ page.url }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">リンクURL（ルート相対）</td>
+			<td class="p-2 border border-slate-400 text-xs">
+				Frontmatterで <code>permalink</code> に <code>false</code> を設定すると <code>false</code> を返す（ページが生成されない） 
+			</td>
+		</tr>
+
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ page.fileSlug }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ page.fileSlug }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">スラッグ</td>
+			<td class="p-2 border border-slate-400 text-xs">
+				ファイル名が <code>index.njk</code> のとき：ディレクトリ名<br>
+				ファイル名が <code>index.njk</code> 以外のとき：ファイル名
+			</td>
+		</tr>
+
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ page.filePathStem }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ page.filePathStem }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">ページURLから拡張子を抜いたもの</td>
+			<td class="p-2 border border-slate-400 text-xs">
+			</td>
+		</tr>
+
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ page.date }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ page.date }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">日付</td>
+			<td class="p-2 border border-slate-400 text-xs">
+				デフォルトはページ作成日時：<code>date: Created</code><br>
+				最終更新日：<code>date: Last Modified</code><br>
+				最終コミット日：<code>date: git Last Modified</code><br>
+				初回コミット日：<code>date: git Created</code><br>
+				<a href="https://yaml.org/type/timestamp.html" target="_blank" class="underline">YAML形式</a>の日付：<code>date: 2025-01-01</code></td>
+		</tr>
+
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ page.inputPath }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ page.inputPath }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">入力ファイルパス</td>
+			<td class="p-2 border border-slate-400 text-xs">
+				<code>dir.input</code>も含む
+			</td>
+		</tr>
+
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ page.outputPath }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ page.outputPath }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">出力ファイルパス</td>
+			<td class="p-2 border border-slate-400 text-xs">
+				<code>dir.output</code>も含む
+			</td>
+		</tr>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ page.outputFileExtension }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ page.outputFileExtension }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">出力ファイル拡張子</td>
+			<td class="p-2 border border-slate-400 text-xs"><code>page.filePathStem</code> と組み合わせて <code>permalink</code> を変更する際などに使用<br>
+				<code>permalink: "{% raw %}{{ page.filePathStem }}.{{ page.outputFileExtension }}{% endraw %}"</code>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ page.templateSyntax }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ page.templateSyntax }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">テンプレート言語</td>
+			<td class="p-2 border border-slate-400 text-xs"></td>
+		</tr>
+
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ page.rawInput }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">-</code>
+			</td>
+			<td class="p-2 border border-slate-400">ファイル内容（Frontmatter以外）のテキストデータ</td>
+			<td class="p-2 border border-slate-400 text-xs"></td>
+		</tr>
+	</tbody>
+</table>
+
+
+<table class="table-fixed border-collapse border border-slate-400 text-sm my-12">
+  <caption class="mb-4 text-xl text-left font-bold">package.json</caption>
+	<colgroup>
+		<col>
+		<col>
+		<col>
+		<col>
+	</colgroup>
+  <thead>
+    <tr class="bg-gray-200 border border-slate-400">
+      <th class="p-2 border border-slate-40">変数名</th>
+			<th class="p-2 border border-slate-40">出力結果</th>
+			<th class="p-2 border border-slate-40">内容</th>
+			<th class="p-2 border border-slate-40">備考</th>
+    </tr>
+  </thead>
+	<tbody>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ pkg.name }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ pkg.name }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">プロジェクト名</td>
+			<td class="p-2 border border-slate-400 text-xs">
+			</td>
+		</tr>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{% for key, value in pkg.devDependencies %}{% endraw %}</code><br>
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ key }}:{{ value }}{% endraw %}</code><br>
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{% endfor %}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded box-decoration-clone">{%- for key, value in pkg.devDependencies %}{{ key }}:{{ value }}<br>{% endfor %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">依存パッケージ</td>
+			<td class="p-2 border border-slate-400 text-xs">※<code>{% raw %}{% for %}{% endraw %}</code>でループ処理してます</td>
+		</tr>
+
+	</tbody>
+</table>
+
+
+<table class="table-fixed border-collapse border border-slate-400 text-sm my-12">
+  <caption class="mb-4 text-xl text-left font-bold">_data/site.json</caption>
+	<colgroup>
+		<col>
+		<col>
+		<col>
+		<col>
+	</colgroup>
+  <thead>
+    <tr class="bg-gray-200 border border-slate-400">
+      <th class="p-2 border border-slate-40">変数名</th>
+			<th class="p-2 border border-slate-40">出力結果</th>
+			<th class="p-2 border border-slate-40">内容</th>
+			<th class="p-2 border border-slate-40">備考</th>
+    </tr>
+  </thead>
+	<tbody>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ site.name }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ site.name }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">サイト名</td>
+			<td class="p-2 border border-slate-400 text-xs">
+			</td>
+		</tr>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ site.url }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ site.url }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">サイトURL</td>
+			<td class="p-2 border border-slate-400 text-xs">
+			</td>
+		</tr>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ site.url }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ site.url }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">サイトURL</td>
+			<td class="p-2 border border-slate-400 text-xs">
+			</td>
+		</tr>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ site.url }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ site.url }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">サイトURL</td>
+			<td class="p-2 border border-slate-400 text-xs">
+			</td>
+		</tr>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ site.root }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ site.root }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">ルートディレクトリ</td>
+			<td class="p-2 border border-slate-400 text-xs">
+			</td>
+		</tr>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ site.og_image }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ site.og_image }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">og:imageのパス</td>
+			<td class="p-2 border border-slate-400 text-xs">
+			</td>
+		</tr>
+		<tr>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-orange-400 py-1 px-2 rounded">{% raw %}{{ site.twittercard }}{% endraw %}</code>
+			</td>
+			<td class="p-2 border border-slate-400">
+				<code class="font-mono text-xs bg-gray-800 text-white py-1 px-2 rounded">{{ site.twittercard }}</code>
+			</td>
+			<td class="p-2 border border-slate-400">twittercardのパス</td>
+			<td class="p-2 border border-slate-400 text-xs">
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+{%- endblock %}

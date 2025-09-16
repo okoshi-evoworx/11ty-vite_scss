@@ -1,0 +1,30 @@
+---
+title: TOP
+gnav: top
+description: 
+---
+{% extends 'layouts/base.njk' %}
+
+{# ページ固有CSS ================================= -#}
+{% block css -%}
+{%- endblock %}
+
+{# ページ固有JS ================================== -#}
+{% block js -%}
+{%- endblock %}
+
+{# コンテンツ ==================================== -#}
+{% block main -%}
+
+<div class="w-fit mx-auto px-4 py-10">
+  <h2 class="font-bolt text-2xl mb-4">News一覧</h2>
+  <ul class="grid grid-col-2 md:grid-cols-3 gap-4 w-fit">
+    {%- for item in collections.news | reverse -%}{% if loop.index <= 3 %}{# 新着 3件 #}
+      {% include "components/news_item.njk" %}
+    {% endif %}{%- endfor -%}
+  </ul>
+  <p class="text-center mt-6"><a href="{{ site.root }}news/" class="underline underline-offset-1 decoration-1 hover:no-underline">News一覧を見る</a></p>
+</div>
+
+
+{%- endblock %}

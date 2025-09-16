@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/**
+ * Tailwind CSS configuration file
+ * https://tailwindcss.com/docs/theme#default-theme-variable-reference
+ */
+
+@theme {
+  /* Breakpoint */
+  --breakpoint-sm: 400px;
+  --breakpoint-md: 800px;
+  --breakpoint-lg: 1200px;
+  --breakpoint-xl: 1600px;
+
+  /* font-family */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, georgia, cambria, "Times New Roman", times, serif;
+  --font-mono: ui-monospace, sfmono-regular, menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace;
+}

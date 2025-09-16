@@ -1,0 +1,26 @@
+@use "sass:math";
+
+// Calc
+@function pcVw($px: 1280) {
+  @return math.div($px, 1280) * 100vw;
+}
+
+@function pcMin($px: 1280) {
+  @if $px > 0 {
+    @return min($px / 1280 * 100vw, $px);
+  } @else if $px < 0 {
+    @return max($px / 1280 * 100vw, $px);
+  } @else {
+    @return 0;
+  }
+
+  // @return min($px / 1280 * 100vw, $px);
+}
+
+@function spVw($px: 375) {
+  @return math.div($px, 375) * 100vw;
+}
+
+@function rem($px) {
+  @return math.div($px, 16) * 1rem;
+}

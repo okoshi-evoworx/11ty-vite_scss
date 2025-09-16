@@ -1,0 +1,22 @@
+---
+title: ABOUT
+gnav: about
+description: descriptionが入ります。
+---
+{% extends 'layouts/base.njk' %}
+
+{# ページ固有CSS ================================= -#}
+{% block css -%}
+{%- endblock %}
+
+{# ページ固有JS ================================== -#}
+{% block js -%}
+{%- endblock %}
+
+{# コンテンツ ==================================== -#}
+{% block main -%}
+<h1 class="text-2xl font-semibold text-center">{{ title }}</h1>
+<p class="text-lg font-thin text-justiry">{{ description }}</p>
+
+
+{%- endblock %}

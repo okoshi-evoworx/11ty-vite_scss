@@ -1,0 +1,159 @@
+@use "sass:math";
+@use "../variable" as *;
+@use "function" as *;
+
+// @mediaquery
+// ==================================================
+@mixin under_sm {
+  @media (width < 400px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (width >= 400px) {
+    @content;
+  }
+}
+
+@mixin under_md {
+  @media (width < 800px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (width >= 800px) {
+    @content;
+  }
+}
+
+@mixin under_lg {
+  @media (width < 1200px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (width >= 1200px) {
+    @content;
+  }
+}
+
+@mixin under_xl {
+  @media (width < 1600px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (width >= 1600px) {
+    @content;
+  }
+}
+
+@mixin sm_md {
+  @media (400px <= width < 800px) {
+    @content;
+  }
+}
+
+@mixin sm_lg {
+  @media (400px <= width < 1200px) {
+    @content;
+  }
+}
+
+@mixin sm_xl {
+  @media (400px <= width < 1600px) {
+    @content;
+  }
+}
+
+@mixin md_lg {
+  @media (800px <= width < 1200px) {
+    @content;
+  }
+}
+
+@mixin md_xl {
+  @media (800px <= width < 1600px) {
+    @content;
+  }
+}
+
+@mixin lg_xl {
+  @media (1200px <= width < 1600px) {
+    @content;
+  }
+}
+
+@mixin landcape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+// Motion
+// ==================================================
+@mixin reduce {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin not_reduce {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+// Color Scheme
+// ==================================================
+@mixin dark {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin light {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+}
+
+// Screen reader only/Visually hidden
+// ==================================================
+@mixin sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+}
+
+// font-size,line-height
+// ------------------------------------
+@mixin fz($size: 16, $lh: 24) {
+  font-size: math.div($size, 16) * 1rem;
+  line-height: math.div($lh, $size);
+}
+
+// @mixin transition
+// ===========================================================
+@mixin transition($prop: #{color}) {
+  transition-timing-function: ease;
+  transition-duration: 0.3s;
+  transition-property: $prop;
+}

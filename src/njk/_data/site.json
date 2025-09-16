@@ -1,0 +1,7 @@
+{
+  "name": "サイト名",
+  "url": "https://example.com",
+  "root": "/",
+  "og_image": "img/common/share.png",
+  "twittercard": "img/common/share.png"
+}

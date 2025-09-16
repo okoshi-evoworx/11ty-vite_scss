@@ -1,0 +1,24 @@
+.skip-to-content {
+  position: absolute !important;
+
+  &:not(:focus) {
+    border: 0 !important;
+    clip: rect(0,0,0,0) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  &:focus {
+    font-size: 0.75rem !important;
+    line-height: 1.5 !important;
+    color: var(--hex-white, white) !important;
+    background-color: var(--hex-link, LinkText) !important;
+    padding: 1rem !important;
+    z-index: calc(var(--z-header, 10) + 1) !important;
+  }
+} // .skip-to-content

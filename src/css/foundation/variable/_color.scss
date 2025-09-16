@@ -1,0 +1,31 @@
+// color
+// ===========================================================
+:root {
+  --hex-white: #fff;
+  --hex-black: #000;
+  --hex-text: #111;
+  --hex-link: #00f;
+  --hex-main: #000;
+  --hex-sub: #000;
+  --hex-gray: #999;
+  --hex-darkgray: #333;
+  --hex-dimgray: #666;
+  --hex-lightgray: #ccc;
+  --hex-smoke: #eee;
+  --hex-info: #00f;
+  --hex-success: #0f0;
+  --hex-warning: #ff0;
+  --hex-danger: #f00;
+
+  // rgb
+  --rgb-white: 255, 255, 255;
+  --rgb-black: 0, 0, 0;
+
+  // oklch
+  --oklch-white: oklch(99.9%, 0, 0deg);
+  --oklch-black: oklch(0%, 0, 0deg);
+
+  // lch
+  --hlc-white: hlc(0, 0, 0);
+  --hlc-black: hlc(0, 0, 100);
+}

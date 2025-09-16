@@ -1,0 +1,24 @@
+// 参考：System colors
+// https://developer.mozilla.org/ja/docs/Web/CSS/system-color
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  line-height: 1.5;
+  color-scheme: light;
+  background-color: Canvas;
+  color: CanvasText; // カラー
+}
+
+:where(main) {
+  a {
+    text-decoration: none;
+  }
+  :link{
+    color: var(--hex-link, LinkText);
+  }
+
+  :visited {
+    color: var(--hex-link, VisitedText);
+  }
+}

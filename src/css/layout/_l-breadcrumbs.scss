@@ -1,0 +1,31 @@
+.l-breadcrumbs {
+  grid-row: 3 / 4;
+  grid-column: 1 / -1;
+
+  .list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    list-style: none;
+  } // .list
+  .item {
+    a {
+      text-decoration: underline;
+
+      &:not([aria-current="page"]):hover {
+        text-decoration: none;
+      } // a:not([aria-current="page"]):hover
+
+      &[aria-current="page"] {
+        text-decoration: none;
+        pointer-events: none;
+      } // a[aria-current="page"]
+    } // a
+
+    + .item::before {
+      content: ">";
+      margin-right: 0.5rem;
+      color: var(--hex-gray-dark);
+    } // .item + .item::before
+  } // .item
+}

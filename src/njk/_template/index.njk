@@ -1,0 +1,25 @@
+---
+title: TEMPLATE
+gnav: template
+description: desctiptionが入ります。
+breadcrumbs:
+  - name: 'TEMPLATE'
+    item: '/_template/'
+---
+{% extends 'layouts/base.njk' %}
+
+{# ページ固有CSS ================================= -#}
+{% block css -%}
+{%- endblock %}
+
+{# ページ固有JS ================================== -#}
+{% block js -%}
+{%- endblock %}
+
+{# コンテンツ ==================================== -#}
+{% block main -%}
+<ul class="list">
+  <li><a href="{{ site.root }}_template/daa/">DATA</a></li>
+</ul>
+
+{%- endblock %}

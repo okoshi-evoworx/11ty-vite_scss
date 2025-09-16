@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+{% include "common/gtm.njk" %}
+<title>{% if title != 'TOP' %}{{ title }} | {% endif %}{{ site.name }}</title>
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="{{ description }}">
+
+{# OGP ====================================== -#}
+<meta property="og:site_name" content="">
+<meta property="og:url" content="">
+<meta property="og:type" content="">
+<meta property="og:title" content="">
+<meta property="og:image" content="">
+<meta property="og:description" content="">
+
+{# Twitter Card ============================= -#}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="">
+
+{# canonical ================================ -#}
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+{# favicon ================================== -#}
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+{# webfont ================================== -#}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+
+{# css ====================================== -#}
+<link rel="stylesheet" href="/css/tailwind.css">
+<link rel="stylesheet" href="/css/styles.css">
+{% block css -%}{%- endblock -%}
+
+{# js ======================================= -#}
+<script src="/js/main.js" type="module"></script>
+<script> //for Chrome transiton bug </script>
+{% block js -%}{%- endblock -%}
+
+{# JSON-LD ================================== -#}
+{% if breadcrumbs or title == 'TOP' %}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": "1",
+      "name": "{{ site.name }}",
+      "item": "{{ site.url }}{{ site.root }}"
+    }{% for breadcrumb in breadcrumbs %},
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index + 1 }},
+      "name": "{{ breadcrumb.name }}",
+      "item": "{{ site.url }}{{ breadcrumb.item }}"
+    }{% endfor %}
+  ]
+}
+</script>
+{% endif -%}
+{% block head -%}{%- endblock -%}
+</head>
+<body{% if bodyid %} id="{{ bodyid }}"{% endif %}{% if bodyclass %} class="{{ bodyclass }}"{% endif %}>
+{% include "common/gtm_noscript.njk" -%}
+{% block bodyStart -%}{%- endblock %}
+<div class="l-container">
+{# ヘッダー ===================================== -#}
+{% include "common/header.njk" %}
+{# コンテンツ =================================== -#}
+<main class="l-main">
+{% block main -%}
+
+{%- endblock %}
+</main>
+{# パンくずリスト ================================ -#}
+{% include "common/breadcrumbs.njk" %}
+{# フッター ===================================== -#}
+{% include "common/footer.njk" %}
+</div>
+{% block bodyEnd -%}{%- endblock %}
+</body>
+</html>

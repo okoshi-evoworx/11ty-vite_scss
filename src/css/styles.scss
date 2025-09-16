@@ -1,0 +1,6 @@
+// Tailwind を使わない場合 modern-normalize を読み込んでください
+// @import 'node_modules/modern-normalize/modern-normalize.css';
+@layer components {// tailwindのcomponents層と同等
+  @import "layout/**/*.scss";
+  @import "object/**/*.scss";
+}
