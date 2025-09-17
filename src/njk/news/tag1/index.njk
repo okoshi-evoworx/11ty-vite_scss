@@ -11,9 +11,10 @@ pagination:
   data: collections.tag1
   size: 2
   reverse: true
-permalink: "news/tag1/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+permalink: 'news/tag1/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html'
 ---
-{% extends 'layouts/base.njk' %}
+
+{% extends 'base/index.njk' %}
 
 {# ページ固有CSS ================================= -#}
 {% block css -%}
@@ -25,17 +26,10 @@ permalink: "news/tag1/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber
 
 {# コンテンツ ==================================== -#}
 {% block main -%}
-
-
-
-<ul class="grid grid-cols-2 gap-4 p-4 w-fit mx-auto">
-{%- for item in pagination.items -%}
-{% include "components/news_item.njk" %}
-{%- endfor -%}
-</ul>
-{% include "components/pager.njk" %}
-
-
-
-
+  <ul class="mx-auto grid w-fit grid-cols-2 gap-4 p-4">
+    {%- for item in pagination.items -%}
+      {% include "components/news_item.njk" %}
+    {%- endfor -%}
+  </ul>
+  {% include "components/pager.njk" %}
 {%- endblock %}

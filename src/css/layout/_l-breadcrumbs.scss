@@ -4,10 +4,11 @@
 
   .list {
     display: flex;
-    gap: 0.5rem;
     flex-wrap: wrap;
+    gap: 0.5rem;
     list-style: none;
   } // .list
+
   .item {
     a {
       text-decoration: underline;
@@ -23,9 +24,9 @@
     } // a
 
     + .item::before {
-      content: ">";
       margin-right: 0.5rem;
       color: var(--hex-gray-dark);
-    } // .item + .item::before
+      content: ">";
+    } // .item + .item::before.item.item
   } // .item
 }

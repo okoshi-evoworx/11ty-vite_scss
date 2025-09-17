@@ -2,6 +2,8 @@
 htmlはNunjucksを用いた11tyを、scss+jsはviteを使用しています。  
 tailwind はhtmlを解析する必要があるので postcssで11tyで実行しています。  
 
+
+
 ## 準備
 ### node_modulesインストール
 ```
@@ -21,21 +23,39 @@ mkcert -install
 ```
 mkcert localhost
 ```
-## ビルド
-### ローカルサーバー（localhost:8080）有
+## dev
 ```
 npm run serve
 ```
-※ または `npm run s` でも実行可
+※ または `npm run s`
 
 ### Watchのみ
 ```
 npm run watch
 ```
-※ または `npm run w` でも実行可
+※ または `npm run w`
 
+## build
+```
+npm run build
+```
+## Check(lint)
+- `npm run check` ：HTML + Nunjucks + js + css
+- `npm run check:html` ：HTML(Markuplint)
+- `npm run check:njk` ：Nunjucks (Prettier/Tailwind)
+- `npm run check:js` ：JS (Biome)
+- `npm run check:css` ：CSS (Stylelint)
 
+## Fix
+- `npm run fix` ：Nunjucks + js + css
+- `npm run fix:njk` ：njk
+- `npm run fix:js` ：js
+- `npm run fix:css` ：css
 
+## VSCode Plugin
+Tailwind CSSのClass名の整列はVSCodeでも可能です。
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 ## Directory
 ```
@@ -68,7 +88,7 @@ npm run watch
 │   └─ njk/
 │       ├─ _data/: データ格納用
 │       ├─ _includes/： インクルードファイル
-│       │  ├─ common/： ヘッダー・フッターなど共通パーツ
+│       │  ├─ base/： 基本構造（ヘッダー・フッターなど）
 │       │  ├─ components/： コンポーネント
 │       │  └─ layouts/： レイアウトファイル
 │       │     ├─ news_detail.njk： News詳細マークダウンファイル用テンプレート

@@ -1,7 +1,8 @@
 ---
 gnav: news
 ---
-{% extends 'layouts/base.njk' %}
+
+{% extends 'base/index.njk' %}
 
 {# ページ固有CSS ================================= -#}
 {% block css -%}
@@ -13,7 +14,5 @@ gnav: news
 
 {# コンテンツ ==================================== -#}
 {% block main -%}
-<div class="p-news-detail">
-{{  content | safe }}
-</div>
+  <div class="p-news-detail">{{ content | safe }}</div>
 {%- endblock %}

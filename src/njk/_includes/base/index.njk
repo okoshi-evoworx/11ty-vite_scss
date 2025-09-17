@@ -2,23 +2,24 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-{% include "common/gtm.njk" %}
-<title>{% if title != 'TOP' %}{{ title }} | {% endif %}{{ site.name }}</title>
+{% include "base/gtm.njk" %}
+<title>{% if page.url != '/' %}{{ title }} | {% endif %}{{ site.name }}</title>
 <meta name="format-detection" content="telephone=no">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="{{ description }}">
 
 {# OGP ====================================== -#}
-<meta property="og:site_name" content="">
-<meta property="og:url" content="">
-<meta property="og:type" content="">
-<meta property="og:title" content="">
-<meta property="og:image" content="">
-<meta property="og:description" content="">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:type" content="{% if page.url != '/' %}website{% else %}article{% endif %}">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:image" content="{{ site.url }}{% if og_image %}{{ og_image }}{% else %}{{ site.og_image }}{% endif %}">
+<meta property="og:description" content="{{ description }}">
 
 {# Twitter Card ============================= -#}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="">
+<meta name="twitter:image" content="{{ site.url }}{% if og_image %}{{ og_image }}{% else %}{{ site.og_image }}{% endif %}">
 
 {# canonical ================================ -#}
 <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
@@ -55,25 +56,26 @@
       "position": "1",
       "name": "{{ site.name }}",
       "item": "{{ site.url }}{{ site.root }}"
-    }{% for breadcrumb in breadcrumbs %},
+    }{%- for breadcrumb in breadcrumbs %},
     {
       "@type": "ListItem",
       "position": {{ loop.index + 1 }},
       "name": "{{ breadcrumb.name }}",
       "item": "{{ site.url }}{{ breadcrumb.item }}"
-    }{% endfor %}
+    }
+    {%- endfor %}
   ]
 }
 </script>
 {% endif -%}
 {% block head -%}{%- endblock -%}
 </head>
-<body{% if bodyid %} id="{{ bodyid }}"{% endif %}{% if bodyclass %} class="{{ bodyclass }}"{% endif %}>
-{% include "common/gtm_noscript.njk" -%}
+<body {%- if bodyid %} id="{{ bodyid }}"{% endif %}{% if bodyclass %} class="{{ bodyclass }}"{% endif %}>
+{% include "base/gtm_noscript.njk" -%}
 {% block bodyStart -%}{%- endblock %}
 <div class="l-container">
 {# ヘッダー ===================================== -#}
-{% include "common/header.njk" %}
+{% include "base/header.njk" %}
 {# コンテンツ =================================== -#}
 <main class="l-main">
 {% block main -%}
@@ -81,9 +83,9 @@
 {%- endblock %}
 </main>
 {# パンくずリスト ================================ -#}
-{% include "common/breadcrumbs.njk" %}
+{% include "base/breadcrumbs.njk" %}
 {# フッター ===================================== -#}
-{% include "common/footer.njk" %}
+{% include "base/footer.njk" %}
 </div>
 {% block bodyEnd -%}{%- endblock %}
 </body>

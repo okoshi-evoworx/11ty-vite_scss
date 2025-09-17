@@ -5,15 +5,16 @@ body {
   width: 100%;
   min-height: 100vh;
   line-height: 1.5;
+  color: CanvasText; // カラー
   color-scheme: light;
   background-color: Canvas;
-  color: CanvasText; // カラー
 }
 
 :where(main) {
   a {
     text-decoration: none;
   }
+
   :link{
     color: var(--hex-link, LinkText);
   }

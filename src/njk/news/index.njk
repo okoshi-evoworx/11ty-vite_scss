@@ -9,8 +9,9 @@ pagination:
   data: collections.news
   size: 2
   reverse: true
-permalink: "news/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+permalink: 'news/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html'
 ---
+
 {#-
   pagination:
     data: collections.news  ← collections.newsをページネーション
@@ -19,7 +20,7 @@ permalink: "news/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 
   permalink: "news/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
     ← 1ページ目は /news/index.html に、2ページ目以降は /news/2/index.html、/news/3/index.html に出力
 -#}
-{% extends 'layouts/base.njk' %}
+{% extends 'base/index.njk' %}
 
 {# ページ固有CSS ================================= -#}
 {% block css -%}
@@ -31,13 +32,11 @@ permalink: "news/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 
 
 {# コンテンツ ==================================== -#}
 {% block main -%}
+  <ul class="mx-auto grid w-fit grid-cols-2 gap-4 p-4">
+    {%- for item in pagination.items -%}
+      {% include "components/news_item.njk" %}
+    {%- endfor -%}
+  </ul>
 
-<ul class="grid grid-cols-2 gap-4 p-4 w-fit mx-auto">
-{%- for item in pagination.items -%}
-{% include "components/news_item.njk" %}
-{%- endfor -%}
-</ul>
-
-{% include "components/pager.njk" %}
-
+  {% include "components/pager.njk" %}
 {%- endblock %}

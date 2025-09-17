@@ -6,7 +6,8 @@ breadcrumbs:
   - name: 'TEMPLATE'
     item: '/_template/'
 ---
-{% extends 'layouts/base.njk' %}
+
+{% extends 'base/index.njk' %}
 
 {# ページ固有CSS ================================= -#}
 {% block css -%}
@@ -18,8 +19,7 @@ breadcrumbs:
 
 {# コンテンツ ==================================== -#}
 {% block main -%}
-<ul class="list">
-  <li><a href="{{ site.root }}_template/daa/">DATA</a></li>
-</ul>
-
+  <ul class="list">
+    <li><a href="{{ site.root }}_template/data/">DATA</a></li>
+  </ul>
 {%- endblock %}

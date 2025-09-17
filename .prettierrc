@@ -1,0 +1,39 @@
+{
+  "plugins": [
+    "prettier-plugin-jinja-template",
+    "prettier-plugin-tailwindcss"
+  ],
+  "tailwindStylesheet": "./src/css/tailwind.css",
+  "semi": false,
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "jsxSingleQuote": false,
+  "proseWrap": "preserve",
+  "arrowParens": "avoid",
+  "bracketSameLine": true,
+  "singleAttributePerLine": false,
+  "htmlWhitespaceSensitivity": "ignore",
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "printWidth": 1024
+      }
+    },
+    {
+      "files": ["*.css", "*.scss"],
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": ["*.njk"],
+      "options": {
+        "parser": "jinja-template",
+        "printWidth": 1024
+      }
+    }
+  ]
+}

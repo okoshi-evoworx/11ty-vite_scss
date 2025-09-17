@@ -1,4 +1,18 @@
 {
   "extends": ["markuplint:recommended"],
-  "excludeFiles": ["node_modules/**/*.html", "dist/**/*.html"]
+  "excludeFiles": ["node_modules/**/*.html"],
+  "parser": {
+    "\\.njk$": "@markuplint/nunjucks-parser"
+  },
+  "parserOptions": {
+    "ignoreFrontMatter": true
+  },
+  "rules": {
+    "invalid-attr": false,
+    "permitted-contents": {
+      "options": {
+        "ignoreHasMutableChildren": false
+      }
+    }
+  }
 }

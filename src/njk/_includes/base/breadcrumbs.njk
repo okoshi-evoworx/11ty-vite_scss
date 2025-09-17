@@ -1,0 +1,15 @@
+{#- 参考：
+* https://web.dev/patterns/components/breadcrumbs?hl=ja
+* https://developers.google.com/search/docs/appearance/structured-data/breadcrumb?hl=ja
+* https://developer.mozilla.org/ja/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-current
+-#}
+{% if breadcrumbs %}
+  <nav id="breadcrumbs" class="l-breadcrumbs" aria-label="パンくずリスト">
+    <ol class="list">
+      <li class="item -home"><a href="{{ site.root }}">HOME</a></li>
+      {%- for breadcrumb in breadcrumbs %}
+        <li class="item{% if loop.last === true %}-current{% endif %}"><a href="{{ breadcrumb.item }}" {% if loop.last === true %}aria-current="page"{% endif %}>{{ breadcrumb.name }}</a></li>
+      {%- endfor %}
+    </ol>
+  </nav>
+{% endif -%}
