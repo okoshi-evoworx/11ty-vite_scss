@@ -8,7 +8,11 @@
     "ignoreFrontMatter": true
   },
   "rules": {
-    "invalid-attr": false,
+    "invalid-attr":  {
+      "options": {
+        "ignoreAttrNamePrefix": [ "<!", "{%", "{{" ]
+      }
+    },
     "permitted-contents": {
       "options": {
         "ignoreHasMutableChildren": false

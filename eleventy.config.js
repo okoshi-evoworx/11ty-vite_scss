@@ -31,10 +31,10 @@ export default async function (eleventyConfig) {
 		port: 8080,
 		watch: ['dist/css/*.css', 'dist/js/*.js'],
 		showAllHosts: false,
-		https: {
-			key: "./localhost-key.pem",
-			cert: "./localhost.pem",
-		},
+		// https: {
+		// 	key: "./localhost-key.pem",
+		// 	cert: "./localhost.pem",
+		// },
 		indexFileName: "index.html",
 		onRequest: {},
 	});

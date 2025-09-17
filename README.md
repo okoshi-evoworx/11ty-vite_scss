@@ -9,20 +9,7 @@ tailwind はhtmlを解析する必要があるので postcssで11tyで実行し�
 ```
 npm i
 ```
-### 開発用SSL証明書の準備
-mkcertが入っていなかったらHomebrewでインストールする。
-```
-brew install mkcert
-```
-↓ 自己認証局の作成
-```
-mkcert -install
-```
-### localhost SSL証明書発行
-`localhost.pem` `localhost-key.pem` は gitで追跡対象にしていないので環境ごとに作成します。
-```
-mkcert localhost
-```
+
 ## dev
 ```
 npm run serve
@@ -40,9 +27,8 @@ npm run watch
 npm run build
 ```
 ## Check(lint)
-- `npm run check` ：HTML + Nunjucks + js + css
-- `npm run check:html` ：HTML(Markuplint)
-- `npm run check:njk` ：Nunjucks (Prettier/Tailwind)
+- `npm run check` Nunjucks + js + css
+- `npm run check:njk` ：Nunjucks (Markuplint + Prettier/Tailwind)
 - `npm run check:js` ：JS (Biome)
 - `npm run check:css` ：CSS (Stylelint)
 
@@ -54,8 +40,17 @@ npm run build
 
 ## VSCode Plugin
 Tailwind CSSのClass名の整列はVSCodeでも可能です。
+
 - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+## a11y test
+```
+npm run test
+```
+### 参考
+- [Accessibility testing](https://playwright.dev/docs/accessibility-testing)
+- [@axe-core/playwright によるアクセシビリティテストの自動化](https://azukiazusa.dev/blog/axe-core-playwright/)
 
 ## Directory
 ```
@@ -88,16 +83,22 @@ Tailwind CSSのClass名の整列はVSCodeでも可能です。
 │   └─ njk/
 │       ├─ _data/: データ格納用
 │       ├─ _includes/： インクルードファイル
-│       │  ├─ base/： 基本構造（ヘッダー・フッターなど）
-│       │  ├─ components/： コンポーネント
-│       │  └─ layouts/： レイアウトファイル
-│       │     ├─ news_detail.njk： News詳細マークダウンファイル用テンプレート
-│       │     └─ base.njk： 全体のベースファイル
+│       │   ├─ base/： 基本構造
+│       │   │   ├─ breadcrumbs.njk： パンくずリスト
+│       │   │   ├─ footer.njk： 共通フッター
+│       │   │   ├─ gtm_noscript.njk： GTMタグ（noscript）
+│       │   │   ├─ gtm.njk： GTMタグ
+│       │   │   ├─ header.njk： 共通ヘッダー
+│       │   │   └─ index.njk： 基本HTML構造
+│       │   ├─ components/： コンポーネント
+│       │   │   ├─ news_item.njk： ニュース記事一覧パーツ
+│       │   │   └─ pager.njk： ページネーション
+│       │   └─ layouts/： レイアウト（Markdown）
+│       │       └─ news_detail.njk： News詳細用テンプレート
 │       └─ _template/： テンプレートファイル
-│          └─ data/： データ出力確認用
+│           └─ data/： データ出力確認用
 ├─ tests/
 │   └─ axe.spec.js：@axe-core/playwright設定ファイル
-├─ .browserslistrc
 ├─ .editorconfig
 ├─ .gitignore
 ├─ .markuplintrc
@@ -106,8 +107,6 @@ Tailwind CSSのClass名の整列はVSCodeでも可能です。
 ├─ .stylelintrc.cjs
 ├─ biome.json
 ├─ eleventy.config.js
-├─ localhost.pem
-├─ localhost-key.pem
 ├─ mise.toml
 ├─ package-lock.json
 ├─ package.json
@@ -119,9 +118,9 @@ Tailwind CSSのClass名の整列はVSCodeでも可能です。
 
 ### Data
 - [Eleventy Supplied Data | 11ty](https://www.11ty.dev/docs/data-eleventy-supplied/)
-- [DATA | TEMPLATE(デモ)](https://localhost:8080/_template/data/)
+- [DATA | TEMPLATE(デモ)](http://localhost:8080/_template/data/)
 
 ### Collection
 - [Collections | 11ty](https://www.11ty.dev/docs/collections/)
 - [Pagination | 11ty](https://www.11ty.dev/docs/pagination/)
-- [NEWS一覧（デモ）](https://localhost:8080/news/)
+- [NEWS一覧（デモ）](http://localhost:8080/news/)

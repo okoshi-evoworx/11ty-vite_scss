@@ -1,3 +1,4 @@
+{# prettier-ignore-start -#}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -56,7 +57,8 @@
       "position": "1",
       "name": "{{ site.name }}",
       "item": "{{ site.url }}{{ site.root }}"
-    }{%- for breadcrumb in breadcrumbs %},
+    }
+    {%- for breadcrumb in breadcrumbs %},
     {
       "@type": "ListItem",
       "position": {{ loop.index + 1 }},
@@ -70,7 +72,7 @@
 {% endif -%}
 {% block head -%}{%- endblock -%}
 </head>
-<body {%- if bodyid %} id="{{ bodyid }}"{% endif %}{% if bodyclass %} class="{{ bodyclass }}"{% endif %}>
+<body {%- if bodyid %}id="{{ bodyid }}"{% endif %} {% if bodyclass %}class="{{ bodyclass }}"{% endif %}>
 {% include "base/gtm_noscript.njk" -%}
 {% block bodyStart -%}{%- endblock %}
 <div class="l-container">
@@ -90,3 +92,4 @@
 {% block bodyEnd -%}{%- endblock %}
 </body>
 </html>
+{# prettier-ignore-end -#}
