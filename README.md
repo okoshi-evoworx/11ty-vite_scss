@@ -57,6 +57,8 @@ HTMLの整形（[js-beautify](https://github.com/beautify-web/js-beautify)使用
 ```
 npm run beautify:html
 ```
+※ または `npm run b`  
+※`.editorconfig`使用。細かい設定をする場合は `package.json` の該当コマンドの編集および`.jsbeautifyrc`を作成してください。
 
 ## Directory
 ```
