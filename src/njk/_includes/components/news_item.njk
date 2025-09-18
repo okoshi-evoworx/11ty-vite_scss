@@ -2,7 +2,7 @@
   <a {% if item.data.external %}href="{{ item.data.external }}" target="_blank" class="underline decoration-1 underline-offset-1 hover:no-underline"{% elif item.url %}href="{{ item.url }}" class="underline decoration-1 underline-offset-1 hover:no-underline"{% endif %}>
     {%- if item.data.thumb %}
       {#- https?//から始まる画像は `eleventy:ignore` を指定して変換から除外しています #}
-      <figure><img src="{{ item.data.thumb }}" alt="" width="160" height="160" loading="lazy" {% set regExp = r/^https?:\/\// %}{% if regExp.test(item.data.thumb) %}eleventy:ignore{% endif %} /></figure>
+      <figure><img src="{{ item.data.thumb }}" alt="" width="160" height="160" loading="lazy" {% if item.data.thumb.startsWith('http') %}eleventy:ignore{% endif %} /></figure>
     {%- endif %}
     <h3 {% if item.data.external %}class="after:content-['↗'] after:ml-1"{% endif %}>{{ item.data.title }}</h3>
     <p class="date"><time datetime="{{ item.data.date | datetime }}">{{ item.data.date | dateview }}</time></p>

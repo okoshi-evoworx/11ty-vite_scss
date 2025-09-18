@@ -52,6 +52,12 @@ npm run test
 - [Accessibility testing](https://playwright.dev/docs/accessibility-testing)
 - [@axe-core/playwright によるアクセシビリティテストの自動化](https://azukiazusa.dev/blog/axe-core-playwright/)
 
+## beautify
+HTMLの整形（[js-beautify](https://github.com/beautify-web/js-beautify)使用）
+```
+npm run beautify:html
+```
+
 ## Directory
 ```
 ├─ dist/

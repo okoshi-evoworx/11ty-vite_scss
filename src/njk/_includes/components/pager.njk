@@ -22,7 +22,7 @@ pagenation.href.last: 最後のページURL
     <li><a {% if page.url !== pagination.href.first %}href="{{ pagination.href.first }}" class="underline hover:no-underline" aria-label="最初のページ"{% else %}class="no-underline pointer-events-none" aria-hidden="true"{% endif %}>&lt;&lt;</a></li>
     <li><a {% if pagination.href.previous %}href="{{ pagination.href.previous }}" class="underline hover:no-underline" aria-label="前のページ"{% else %}class="no-underline pointer-events-none" aria-hidden="true"{% endif %}>&lt;</a></li>
     {%- for pageEntry in pagination.pages %}
-      {% if pagination.pageNumber === 0 or pagination.pageNumber === pagination.pages.length - 1 %}
+      {%- if pagination.pageNumber === 0 or pagination.pageNumber === pagination.pages.length - 1 %}
         {%-
           if loop.index0 === pagination.pageNumber - 2
           or loop.index0 === pagination.pageNumber - 1
@@ -32,7 +32,7 @@ pagenation.href.last: 最後のページURL
         %}
           <li><a href="{{ pagination.hrefs[loop.index0] }}" {%- if page.url === pagination.hrefs[loop.index0] %}aria-current="page" class="no-underline pointer-events-none"{% else %}class="underline hover:no-underline"{% endif %}>{{ loop.index }}</a></li>
         {%- endif %}
-      {% else %}
+      {%- else %}
         {%-
           if loop.index0 === pagination.pageNumber - 1
           or loop.index0 === pagination.pageNumber
