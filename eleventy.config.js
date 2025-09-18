@@ -5,9 +5,14 @@ import postcssLightningcss from 'postcss-lightningcss'
 import tailwindcss from '@tailwindcss/postcss';
 import { format } from 'date-fns';
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
-import { url } from 'inspector';
+import clean from "eleventy-plugin-clean";
+
 
 export default async function (eleventyConfig) {
+
+  // eleventy-plugin-clean
+  // https://github.com/kentaroi/eleventy-plugin-clean
+  eleventyConfig.addPlugin(clean);
 
   // 11ty Image
   // https://www.11ty.dev/docs/plugins/image/
