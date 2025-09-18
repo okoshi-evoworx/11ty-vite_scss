@@ -1,20 +1,20 @@
 <header id="header" class="l-header">
-{%- if title === 'TOP' %}
-<h1 class="logo"><img src="/img/common/logo.svg" alt="{{ site.name }}" width="" height="" loading="lazy" /></h1>
-{%- else %}
-<div class="logo">
-<a href="{{ site.root }}"><img src="/img/common/logo.svg" alt="{{ site.name }}" width="" height="" loading="lazy" /></a>
-</div>
-{%- endif %}
-<nav id="menu" class="l-menu" aria-label="メニュー" aria-hidden="true">
-<ul>
-<li><a href="{{ site.root }}_template/" {% if gnav === 'template' %}aria-current="true"{% endif %}>TEMPLATE</a></li>
-<li><a href="{{ site.root }}about/" {% if gnav === 'about' %}aria-current="true"{% endif %}>ABOUT</a></li>
-<li><a href="{{ site.root }}news/" {% if gnav === 'news' %}aria-current="true"{% endif %}>NEWS</a></li>
-<li><a href="#" {% if gnav === 'menu3' %}aria-current="true"{% endif %}>MENU3</a></li>
-<li><a href="#" {% if gnav === 'menu4' %}aria-current="true"{% endif %}>MENU4</a></li>
-<li><a href="#" {% if gnav === 'menu5' %}aria-current="true"{% endif %}>MENU5</a></li>
-</ul>
-</nav>
-<button type="button" id="trigger" class="l-trigger" aria-controls="menu" aria-expanded="false" aria-label="メニューを開く"><span></span></button>
+  {%- if title === 'TOP' %}
+    <h1 class="logo"><img src="/img/common/logo.svg" alt="{{ site.name }}" width="" height="" loading="lazy" /></h1>
+  {%- else %}
+    <div class="logo">
+      <a href="{{ site.root }}"><img src="/img/common/logo.svg" alt="{{ site.name }}" width="" height="" loading="lazy" /></a>
+    </div>
+  {%- endif %}
+  <nav id="menu" class="l-menu" aria-label="メニュー" aria-hidden="true">
+    <ul>
+      <li><a href="{{ site.root }}_template/" {% if gnav === 'template' %}aria-current="true"{% endif %}>TEMPLATE</a></li>
+      <li><a href="{{ site.root }}about/" {% if gnav === 'about' %}aria-current="true"{% endif %}>ABOUT</a></li>
+      <li><a href="{{ site.root }}news/" {% if gnav === 'news' %}aria-current="true"{% endif %}>NEWS</a></li>
+      <li><a href="#" {% if gnav === 'menu3' %}aria-current="true"{% endif %}>MENU3</a></li>
+      <li><a href="#" {% if gnav === 'menu4' %}aria-current="true"{% endif %}>MENU4</a></li>
+      <li><a href="#" {% if gnav === 'menu5' %}aria-current="true"{% endif %}>MENU5</a></li>
+    </ul>
+  </nav>
+  <button type="button" id="trigger" class="l-trigger" aria-controls="menu" aria-expanded="false" aria-label="メニューを開く"><span></span></button>
 </header>

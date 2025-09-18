@@ -124,3 +124,32 @@ npm run test
 - [Collections | 11ty](https://www.11ty.dev/docs/collections/)
 - [Pagination | 11ty](https://www.11ty.dev/docs/pagination/)
 - [NEWS一覧（デモ）](http://localhost:8080/news/)
+
+## 11ty Image
+11ty Image Pluginを入れているので imgタグに `eleventy:formats="webp"` を追加するとwebpに変換されます。
+
+```
+<img src="/img/360x360.png" alt="" width="360" height="360" loading="lazy" eleventy:formats="webp" />
+```
+↓
+```
+<img src="/img/360x360.webp" alt="" width="360" height="360" loading="lazy">
+```
+
+widthを複数指定する場合は、`width`の代わりに`eleventy:widths`を使用してください。
+```
+<img src="/img/360x360.png" alt="テスト" eleventy:widths="180,360" height="360" loading="lazy" eleventy:formats="webp,png" />
+```
+↓
+```
+<picture><source type="image/webp" srcset="/img/360x360-180.webp 180w, /img/360x360-360.webp 360w" sizes="auto"><img alt="テスト" loading="lazy" src="/img/360x360-180.png" height="180" width="180" sizes="auto" srcset="/img/360x360-180.png 180w, /img/360x360-360.png 360w"></picture>
+```
+
+変換してほしくない画像には `eleventy:ignore` を追加してください。
+```
+<img src="https://placehold.jp/cccccc/ffffff/320x320.png" alt="" width="360" height="360" loading="lazy" eleventy:ignore" />
+```
+
+詳しくは [11ty - Image](https://www.11ty.dev/docs/plugins/image/)を参照してください。
+
+※srcディレクトリ内の、imgタグに記載されていない画像(=Image pluginsで処理しないogp画像など）もコピーしたい場合は `eleventy.config.js` の `templateFormats` に拡張子を追加してください。

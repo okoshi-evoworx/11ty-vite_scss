@@ -10,7 +10,7 @@
   "rules": {
     "invalid-attr":  {
       "options": {
-        "ignoreAttrNamePrefix": [ "<!", "{%", "{{" ]
+        "ignoreAttrNamePrefix": [ "<!", "{%", "{{", "eleventy:" ]
       }
     },
     "permitted-contents": {

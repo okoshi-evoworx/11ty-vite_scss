@@ -4,8 +4,55 @@ import postcss from 'postcss';
 import postcssLightningcss from 'postcss-lightningcss'
 import tailwindcss from '@tailwindcss/postcss';
 import { format } from 'date-fns';
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import { url } from 'inspector';
 
 export default async function (eleventyConfig) {
+
+  // 11ty Image
+  // https://www.11ty.dev/docs/plugins/image/
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ['auto'],
+    // widths: ["auto"],
+    failOnError: false,
+    transformOnRequest: false,
+    outputDir: undefined,
+    urlPath: undefined,
+    sharpOptions: {
+      animated: true,
+      quality: 100,
+    },
+    filenameFormat: function (id, src, width, format, options) {
+      // Define custom filenames for generated images
+      // id: hash of the original image
+      // src: original image path
+      // width: current width in px
+      // format: current file format
+      // options: set of options passed to the Image call
+
+      // ファイル名だけ取り出して dist/img/ に格納
+      // const filename = src.split('/').pop().replace(/\.[^/.]+$/, "");
+
+      // src/njk/img/ 内の階層を維持したまま dist/img/ に格納
+      const filename = src.replace(/src\/njk\/img\//, '').replace(/\.[^/.]+$/, "");
+
+      // widthの値が1つだけなら拡張子のみ変更
+      if (options.widths.length === 1) {
+        return `${filename}.${format}`;
+      }
+      return `${filename}-${width}.${format}`;
+    },
+    htmlOptions: {
+      imgAttributes: {
+        alt : "", // required
+        loading: "lazy",
+      },
+      // HTML attributes added to `<picture>` (omitted when <img> used)
+      pictureAttributes: {},
+      // Which source to use for `<img width height src>` attributes
+      fallback: "smallest", // or "smallest"
+    }
+  });
 
   // Collections (NEWS)：newsディレクトリ配下を取得
   // https://www.11ty.dev/docs/collections-api/
@@ -72,6 +119,13 @@ export default async function (eleventyConfig) {
     fs.writeFileSync(tailwindOutputPath, result.css);
   });
 
+  // File Copy
+  // https://www.11ty.dev/docs/copy/
+  eleventyConfig.addPassthroughCopy('src/njk/apple-touch-icon.png');
+  eleventyConfig.addPassthroughCopy('src/njk/favicon.ico');
+  eleventyConfig.addPassthroughCopy('src/njk/favicon.svg');
+
+  // Nunjucks
   // https://www.11ty.dev/docs/languages/nunjucks/
   // eleventyConfig.setNunjucksEnvironmentOptions({
   //   autoescape: true, // default: true
@@ -83,7 +137,8 @@ export default async function (eleventyConfig) {
   // });
 
   return {
-    templateFormats: ['njk', 'html', 'md', 'json', 'jpg', 'png', 'svg', 'webp', 'gif', 'ico' ],// inputからコピーしたいファイルも含める
+    // templateFormats: ['njk', 'html', 'md', 'json', 'jpg', 'png', 'svg', 'webp', 'gif', 'ico' ],// inputディレクトリ（src/njk）からコピーしたいファイルも含める
+    templateFormats: ['njk', 'html', 'md', 'json'],// 画像はプラグインから処理するため除外
     pathPrefix: '/',
     markdownTemplateEngine: 'njk',
     htmlTemplateEngine: 'njk',

@@ -8,7 +8,7 @@
     <ol class="list">
       <li class="item -home"><a href="{{ site.root }}">HOME</a></li>
       {%- for breadcrumb in breadcrumbs %}
-        <li class="item{% if loop.last === true %}-current{% endif %}"><a href="{{ breadcrumb.item }}" {% if loop.last === true %}aria-current="page"{% endif %}>{{ breadcrumb.name }}</a></li>
+        <li class="item {% if loop.last === true %}-current{% endif %}"><a href="{{ breadcrumb.item }}" {% if loop.last === true %}aria-current="page"{% endif %}>{{ breadcrumb.name }}</a></li>
       {%- endfor %}
     </ol>
   </nav>
