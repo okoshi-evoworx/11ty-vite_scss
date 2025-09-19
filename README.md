@@ -24,7 +24,7 @@ npm run watch
 ```
 npm run build
 ```
-※`vite`→`11ty`→`beautify`の順で実行
+※`vite`→`11ty`→`beautify:html`の順で実行
 
 
 ## Check(lint)
@@ -56,7 +56,7 @@ npm run test
 ## beautify
 HTMLの整形（[js-beautify](https://github.com/beautify-web/js-beautify)使用）
 ```
-npm run beautify
+npm run beautify:html
 ```
 ※`.editorconfig`使用。細かい設定をする場合は `package.json` の該当コマンドの編集および`.jsbeautifyrc`を作成してください。
 
