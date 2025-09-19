@@ -2,8 +2,6 @@
 htmlはNunjucksを用いた11tyを、scss+jsはviteを使用しています。  
 tailwind はhtmlを解析する必要があるので postcssで11tyで実行しています。  
 
-
-
 ## 準備
 ### node_modulesインストール
 ```
@@ -14,7 +12,7 @@ npm i
 ```
 npm run serve
 ```
-※ または `npm run s`
+※ または `npm run s` `npm run dev`
 
 ### Watchのみ
 ```
@@ -26,6 +24,9 @@ npm run watch
 ```
 npm run build
 ```
+※`vite`→`11ty`→`beautify`の順で実行
+
+
 ## Check(lint)
 - `npm run check` Nunjucks + js + css
 - `npm run check:njk` ：Nunjucks (Markuplint + Prettier/Tailwind)
@@ -55,9 +56,8 @@ npm run test
 ## beautify
 HTMLの整形（[js-beautify](https://github.com/beautify-web/js-beautify)使用）
 ```
-npm run beautify:html
+npm run beautify
 ```
-※ または `npm run b`  
 ※`.editorconfig`使用。細かい設定をする場合は `package.json` の該当コマンドの編集および`.jsbeautifyrc`を作成してください。
 
 ## Directory
