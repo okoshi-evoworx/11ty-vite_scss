@@ -217,7 +217,7 @@ breadcrumbs:
     </tbody>
   </table>
 
-  <table class="my-12 table-fixed border-collapse border border-slate-400 text-sm">
+  <table class="[&_th,td]:border-slate-40 my-12 table-fixed border-collapse border border-slate-400 text-sm [&_code]:rounded [&_code]:bg-gray-800 [&_code]:px-2 [&_code]:py-1 [&_code]:font-mono [&_code]:text-xs [&_th,td]:border [&_th,td]:p-2">
     <caption class="mb-4 text-left text-xl font-bold">_data/site.json</caption>
     <colgroup>
       <col />
@@ -226,83 +226,63 @@ breadcrumbs:
       <col />
     </colgroup>
     <thead>
-      <tr class="border border-slate-400 bg-gray-200">
-        <th class="border-slate-40 border p-2">変数名</th>
-        <th class="border-slate-40 border p-2">出力結果</th>
-        <th class="border-slate-40 border p-2">内容</th>
-        <th class="border-slate-40 border p-2">備考</th>
+      <tr class="bg-gray-200">
+        <th>変数名</th>
+        <th>出力結果</th>
+        <th>内容</th>
+        <th>備考</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-orange-400">{% raw %}{{ site.name }}{% endraw %}</code>
+        <td>
+          <code class="text-orange-400">{% raw %}{{ site.name }}{% endraw %}</code>
         </td>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-white">{{ site.name }}</code>
+        <td>
+          <code class="text-white">{{ site.name }}</code>
         </td>
-        <td class="border border-slate-400 p-2">サイト名</td>
-        <td class="border border-slate-400 p-2 text-xs"></td>
+        <td>サイト名</td>
+        <td class="text-xs"></td>
       </tr>
       <tr>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-orange-400">{% raw %}{{ site.url }}{% endraw %}</code>
+        <td>
+          <code class="text-orange-400">{% raw %}{{ site.url }}{% endraw %}</code>
         </td>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-white">{{ site.url }}</code>
+        <td>
+          <code class="text-white">{{ site.url }}</code>
         </td>
-        <td class="border border-slate-400 p-2">サイトURL</td>
-        <td class="border border-slate-400 p-2 text-xs"></td>
+        <td>サイトURL</td>
+        <td class="text-xs"></td>
       </tr>
       <tr>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-orange-400">{% raw %}{{ site.root }}{% endraw %}</code>
+        <td>
+          <code class="text-orange-400">{% raw %}{{ site.root }}{% endraw %}</code>
         </td>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-white">{{ site.root }}</code>
+        <td>
+          <code class="text-white">{{ site.root }}</code>
         </td>
-        <td class="border border-slate-400 p-2">ルートディレクトリ</td>
-        <td class="border border-slate-400 p-2 text-xs"></td>
+        <td>ルートディレクトリ</td>
+        <td class="text-xs"></td>
       </tr>
       <tr>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-orange-400">{% raw %}{{ site.og_image }}{% endraw %}</code>
+        <td>
+          <code class="text-orange-400">{% raw %}{{ site.og_image }}{% endraw %}</code>
         </td>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-white">{{ site.og_image }}</code>
+        <td>
+          <code class="text-white">{{ site.og_image }}</code>
         </td>
-        <td class="border border-slate-400 p-2">サイト共通OG:IMAGE</td>
-        <td class="border border-slate-400 p-2 text-xs"></td>
+        <td>サイト共通OG:IMAGE</td>
+        <td class="text-xs"></td>
       </tr>
       <tr>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-orange-400">{% raw %}{{ site.root }}{% endraw %}</code>
+        <td>
+          <code class="text-orange-400">{% raw %}{{ site.og_image }}{% endraw %}</code>
         </td>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-white">{{ site.root }}</code>
+        <td>
+          <code class="text-white">{{ site.og_image }}</code>
         </td>
-        <td class="border border-slate-400 p-2">ルートディレクトリ</td>
-        <td class="border border-slate-400 p-2 text-xs"></td>
-      </tr>
-      <tr>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-orange-400">{% raw %}{{ site.og_image }}{% endraw %}</code>
-        </td>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-white">{{ site.og_image }}</code>
-        </td>
-        <td class="border border-slate-400 p-2">og:imageのパス</td>
-        <td class="border border-slate-400 p-2 text-xs"></td>
-      </tr>
-      <tr>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-orange-400">{% raw %}{{ site.twittercard }}{% endraw %}</code>
-        </td>
-        <td class="border border-slate-400 p-2">
-          <code class="rounded bg-gray-800 px-2 py-1 font-mono text-xs text-white">{{ site.twittercard }}</code>
-        </td>
-        <td class="border border-slate-400 p-2">twittercardのパス</td>
-        <td class="border border-slate-400 p-2 text-xs"></td>
+        <td>og:imageのパス</td>
+        <td class="text-xs"></td>
       </tr>
     </tbody>
   </table>

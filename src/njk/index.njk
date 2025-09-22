@@ -16,6 +16,7 @@ description:
 
 {# コンテンツ ==================================== -#}
 {% block main -%}
+  <h1>{{ site.name }}</h1>
   <div class="mx-auto w-fit px-4 py-10">
     <h2 class="font-bolt mb-4 text-2xl">News一覧</h2>
     <ul class="grid-col-2 grid w-fit gap-4 md:grid-cols-3">
@@ -28,4 +29,21 @@ description:
   </div>
   <img src="/img/360x360.png" alt="" width="360" height="360" loading="lazy" eleventy:formats="webp" />
   <img src="/img/360x360.png" alt="テスト" eleventy:widths="180,360" loading="lazy" eleventy:formats="webp,png" />
+
+  <div class="apply-sample">Sample</div>
+  <div class="tw-card scrollbar-hidden">
+    card
+    <br />
+    card
+    <br />
+    card
+    <br />
+    card
+    <br />
+    card
+    <br />
+    card
+    <br />
+    card
+  </div>
 {%- endblock %}

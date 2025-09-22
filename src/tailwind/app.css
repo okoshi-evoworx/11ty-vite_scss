@@ -1,9 +1,13 @@
 @import "tailwindcss";
+/* Tailwindの@importはglob不可 */
+@import "./base/_typography.css";
+@import "./components/_card.css";
+@import "./utilities/_scrollbar-hidden.css";
 
 /**
- * Tailwind CSS configuration file
- * https://tailwindcss.com/docs/theme#default-theme-variable-reference
- */
+* Tailwind CSS configuration file
+* https://tailwindcss.com/docs/theme#default-theme-variable-reference
+*/
 
 @theme {
   /* Breakpoint */
@@ -16,4 +20,10 @@
   --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, georgia, cambria, "Times New Roman", times, serif;
   --font-mono: ui-monospace, sfmono-regular, menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer components {
+  .apply-sample {
+    @apply grid h-48 w-48 place-items-center rounded bg-gray-200 p-4 font-sans text-gray-800;
+  }
 }

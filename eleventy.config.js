@@ -94,7 +94,7 @@ export default async function (eleventyConfig) {
   // TailwindCSS
   // https://www.humankode.com/eleventy/how-to-set-up-tailwind-4-with-eleventy-3/
   eleventyConfig.on('eleventy.before', async () => {
-    const tailwindInputPath = path.resolve('./src/css/tailwind.css');
+    const tailwindInputPath = path.resolve('./src/tailwind/app.css');
     const tailwindOutputPath = './dist/css/tailwind.css';
 
     const cssContent = fs.readFileSync(tailwindInputPath, 'utf8');
@@ -123,6 +123,8 @@ export default async function (eleventyConfig) {
 
     fs.writeFileSync(tailwindOutputPath, result.css);
   });
+  // tailwind.cssの変更を監視
+  eleventyConfig.addWatchTarget('src/tailwind/**/*.css');
 
   // File Copy
   // https://www.11ty.dev/docs/copy/

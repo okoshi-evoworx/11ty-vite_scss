@@ -31,7 +31,7 @@ npm run build
 - `npm run check` Nunjucks + js + css
 - `npm run check:njk` ：Nunjucks (Markuplint + Prettier/Tailwind)
 - `npm run check:js` ：JS (Biome)
-- `npm run check:css` ：CSS (Stylelint)
+- `npm run check:css` ：CSS (Stylelint) + Prettier/Tailwind
 
 ## Fix
 - `npm run fix` ：Nunjucks + js + css
@@ -72,7 +72,7 @@ npm run beautify:html
 │   └─ index.html
 ├─ public/：静的ファイル
 ├─ src/
-│   ├─ css/
+│   ├─ scss/
 │   │   ├─ foundation/
 │   │   │   ├─ mixin/：SCSSの@mixin, @function
 │   │   │   └─ variable/：CSS変数
@@ -82,8 +82,12 @@ npm run beautify:html
 │   │   │  ├─ page/：コンポーネントの組み合わせ（ページ単位のパーツ）
 │   │   │  └─ utility/：ユーティリティ（Skip to Content等）
 │   │   ├─ layout/：レイアウト（共通ヘッダー・フッターなど）
-│   │   ├─ styles.scss
-│   │   └─ tailwind.css ※拡張子注意
+│   │   └─ styles.scss
+│   ├─ tailwind/
+│   │   ├─ base/：@layer base
+│   │   ├─ components/：@layer components
+│   │   ├─ utilities/：@utility
+│   │   └─ tailwind.css
 │   ├─ img/
 │   ├─ js/
 │   │   ├─ modules/

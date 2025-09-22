@@ -3,9 +3,9 @@
     "prettier-plugin-jinja-template",
     "prettier-plugin-tailwindcss"
   ],
-  "tailwindStylesheet": "./src/css/tailwind.css",
+  "tailwindStylesheet": "./src/tailwind/app.css",
   "semi": false,
-  "printWidth": 80,
+  "printWidth": 1024,
   "useTabs": false,
   "singleQuote": true,
   "jsxSingleQuote": false,

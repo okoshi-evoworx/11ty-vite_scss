@@ -20,8 +20,8 @@ export default defineConfig({
             scss: {
               additionalData: `
                 @use "sass:math";
-                @use "@/css/foundation/mixin" as *;
-                @use "@/css/foundation/variable" as *;
+                @use "@/scss/foundation/mixin" as *;
+                @use "@/scss/foundation/variable" as *;
               `,
               logger: {
                   warn(message, options) {
@@ -45,7 +45,7 @@ export default defineConfig({
         rollupOptions: {
           input: [
             'src/js/main.js',
-            'src/css/styles.scss'
+            'src/scss/styles.scss'
           ],
           output: {
                 entryFileNames: `js/main.js`,
