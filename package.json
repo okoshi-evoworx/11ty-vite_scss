@@ -19,8 +19,8 @@
     "fix:njk": "npx prettier './src/njk/**/*.njk' '!./dist' --write",
     "check:js": "biome check src/js/**/*.js",
     "fix:js": "biome check --write src/js/**/*.js",
-    "check:css": "stylelint 'src/scss/**/*.scss' & npx prettier 'src/tailwind/**/*.css'",
-    "fix:css": "stylelint --fix 'src/scss/**/*.scss' & npx prettier 'src/tailwind/**/*.css' --write",
+    "check:css": "npx stylelint 'src/scss/**/*.scss' & npx prettier 'src/tailwind/**/*.css'",
+    "fix:css": "npx stylelint --fix 'src/scss/**/*.scss' & npx prettier 'src/tailwind/**/*.css' --write",
     "check": "npm run check:html & npm run check:njk & npm run check:js & npm run check:css",
     "fix": "npm run fix:njk & npm run fix:js & npm run fix:css",
     "test": "npx playwright test"
